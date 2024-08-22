@@ -8,14 +8,15 @@ class StudentListTest {
     @Test
     void testAddNewStudent() {
         StudentList studentList = new StudentList();
-        studentList.addNewStudent("6610405832", "Fame");
+        studentList.addNewStudent("6610405832", "Fame", 50);
         studentList.addNewStudent("661040583x", "Famx");
-        studentList.addNewStudent("66104058xx", "Faxx");
+        studentList.addNewStudent("66104058xx", "Faxx", 10);
         Student actual = studentList.findStudentById("6610405832");
         assertEquals("Fame", actual.getName());
+        assertEquals(50, actual.getScore());
     }
     @Test
-    void testFindStudentBuyId(){
+    void testFindStudentById(){
         StudentList studentList = new StudentList();
         studentList.addNewStudent("6610405832", "Fame");
         studentList.addNewStudent("661040583x", "Famx");
@@ -43,5 +44,6 @@ class StudentListTest {
         studentList.addNewStudent("66104058xx", "Faxx", 40);
         String Expected = "A";
         String Actual = studentList.viewGradeOfId("6610405832");
+        assertEquals(Expected, Actual);
     }
 }
